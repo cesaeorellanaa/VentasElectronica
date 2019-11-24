@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Cliente</title> 
+    {% load static %}
+ 
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" 	href="{% static "VentasElectronica/css/bootstrap.min.css" %}">
+
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" 	href="{% static "VentasElectronica/css/slick.css" %}">
+    <link type="text/css" rel="stylesheet"  href="{% static "VentasElectronica/css/slick-theme.css" %}">
+
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" 	href="{% static "VentasElectronica/css/snouislider.min.css" %}">	
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" 					href="{% static "VentasElectronica/css/font-awesome.min.css" %}">		
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet"	href="{% static "VentasElectronica/css/style.css" %}">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+</head>
+	<!-- HEADER -->
+    <header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links pull-left">
+						<li><a href="#"><i class="fa fa-phone"></i> +56-975-617-794</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> Antonio Varas 666</a></li>
+					</ul>
+					<ul class="header-links pull-right">
+						<li><a href="#"><i class="fa fa-dollar"></i> CLP</a></li>
+						<li><a href="../login"><i class="fa fa-user-o"></i> Mi Cuenta</a></li>
+						<li><a href="/admin"><i class="fa fa-user-o"></i> Administradores</a></li>
+					</ul>
+				</div>
+            </div>
+            </header>
+			<!-- /TOP HEADER -->
+								
+			<!-- MAIN HEADER -->
+			<div id="header">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="../index" class="logo">
+								<img src="{% static "VentasElectronica/img/logo.png" %} " alt="">
+								</a>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <body>
+            <Center>   <h2> Hay {{cuantos}} Cliente registrado.</h2>  </Center>
+            <Center>  {% for cliente in listaCliente  %}  </Center>
+            <Center>    <table>
+                <thread>
+                    <tr>
+                        <th>Nombre     </th>
+                        <th>Apellidos     </th>
+                        <th>Correo Electronico     </th>
+                        <th>Direccion     </th>
+                        <th>Ciudad     </th>
+                        <th>Pais     </th>
+                        <th>Codigo Postal     </th>
+                        <th>Telefono     </th>
+                    </tr>
+                </thread>
+                <tbody>
+                    <tr>
+                        <td>{{cliente.Nombre}}</td>
+                        <td>{{cliente.Apellidos}}</td>
+                        <td>{{cliente.CorreoElectronico}}</td>
+                        <td>{{cliente.Direccion}}</td>
+                        <td>{{cliente.Ciudad}}</td>
+                        <td>{{cliente.Pais}}</td>
+                        <td>{{cliente.CodigoPostal}}</td>
+                        <td>{{cliente.Telefono}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table> </Center>
+
+
+            <h1>
+                    <Center> <a href="../index" >Volver a la página principal</a></Center>
+            
+            </h1>
+
+
+            <Center>
+            <form method="POST">
+                Nombre: 
+                <input type="text" name="correoElectronico" value="{{correoElectronico}}" style="width:40px">
+                <button type="submit" value="Filtrar">Filtrar</button>
+                {% csrf_token %}
+            </form>  
+        </Center>
+<!-- jQuery Plugins -->
+<script src="{% static "VentasElectronica/js/query.min.js" %}"></script>
+<script src="{% static "VentasElectronica/js/bootstrap.min.js" %}"></script>
+<script src="{% static "VentasElectronica/js/slick.min.js" %}"></script>
+<script src="{% static "VentasElectronica/js/nouislider.min.js" %}"></script>
+<script src="{% static "VentasElectronica/js/jquery.zoom.min.js" %}"></script>
+<script src="{% static "VentasElectronica/jss/main.js" %}"></script>
+        
+    </body>
+</html>
+
